@@ -4,7 +4,7 @@
     "content": {
         "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f57q43-blink-sw-delay-mplab-mcc",
-        "version": " ",
+        "version": "1.0.0 ",
         "displayName": "PIC18F57Q43 blink sw delay mplab mcc",
         "projectName": "pic18f57q43-blink-sw-delay-mplab-mcc",
         "shortDescription": "This examples showcases the periodic blinking of an LED using the delay routine and MCC generated APIs",
@@ -19,12 +19,12 @@
             }
         ],
         "dfp": {
-            "name": "",
-            "semverRange": ""
+            "name": "PIC18F-Q_DFP",
+            "semverRange": "^1.11.185"
         },
         "configurator": {
-            "name": "",
-            "semverRange": ""
+            "name": "MCC",
+            "semverRange": ">=4.1.0"
         },
         "device": {
             "metaDataVersion": "1.0.0",
@@ -36,10 +36,23 @@
                 "versionRange": "*"
             }
         },
-        "author": "Seyed Mazloom",
-        "subcategories": [],
-        "peripherals": [],
-        "keywords": [],
+        "author": "Microchip",
+        "subcategories": [
+            "MCC",
+            [
+                "Peripherals",
+                "PORT"
+            ]
+          ],
+           "peripherals": [
+            "PORT"
+          ],
+        "keywords": [
+            "PORT",
+            "LED",
+            "Curisoity Nano",
+            "Melody"
+        ],
         "additionalData": {
             "longDescription": {
                 "metaDataVersion": "1.0.0",
