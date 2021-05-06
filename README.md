@@ -1,41 +1,67 @@
 <!-- Please do not change this logo with link -->
 [![MCHP](images/microchip.png)](https://www.microchip.com)
 
-# Update the title for pic18f57q43-blink-sw-delay-mplab-mcc here
+# Blink with Timer
 
-<!-- This is where the introduction to the example goes, including mentioning the peripherals used -->
+This example demonstrates how to use the MPLAB Code Configurator (MCC) to configure an LED to blink periodically. The example uses the Pin Manager to configure the pin and generate an API with which the pin is later interfaced. Also, the delay driver is used to implement periodic interrupt between each time the pin output is toggled.
 
 ## Related Documentation
 
-<!-- Any information about an application note or tech brief can be linked here. Use unbreakable links!
-     In addition a link to the device family landing page and relevant peripheral pages as well:
-     - [AN3381 - Brushless DC Fan Speed Control Using Temperature Input and Tachometer Feedback](https://microchip.com/00003381/)
-     - [PIC18F-Q10 Family Product Page](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q10-product-family) -->
+- [MPLAB Code Configurator](https://www.microchip.com/en-us/development-tools-tools-and-software/embedded-software-center/mplab-code-configurator)
+- [PIC18F57Q47 Data Sheet](https://ww1.microchip.com/downloads/en/DeviceDoc/PIC18F27-47-57Q43-Data-Sheet-DS40002147E.pdf)
+- [PIC18F57Q47 Family Product Page](https://www.microchip.com/wwwproducts/en/PIC18F57Q43)
 
 ## Software Used
 
-<!-- All software used in this example must be listed here. Use unbreakable links!
-     - MPLAB® X IDE 5.30 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
-     - MPLAB® XC8 2.10 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
-     - MPLAB® Code Configurator (MCC) 3.95.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - Microchip PIC18F-Q Series Device Support (1.4.109) or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/) -->
+- [MPLAB® X IDE](http://www.microchip.com/mplab/mplab-x-ide) **5.45** or newer
+- [MPLAB® XC8](http://www.microchip.com/mplab/compilers) **2.31** or a newer compiler 
+- [MPLAB® Code Configurator (MCC)](https://www.microchip.com/mplab/mplab-code-configurator) **4.1.0** or newer 
+- [MPLAB® Melody Library](https://www.microchip.com/en-us/development-tools-tools-and-software/embedded-software-center/mplab-code-configurator) **1.37.25** or newer
+- [Microchip PIC18F-Q Series Device Support pack](https://packs.download.microchip.com/) **1.11.185** or newer Device Pack
 
 ## Hardware Used
-
-<!-- All hardware used in this example must be listed here. Use unbreakable links!
-     - PIC18F47Q10 Curiosity Nano [(DM182029)](https://www.microchip.com/Developmenttools/ProductDetails/DM182029)
-     - Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
-     - POT Click board™ [(MIKROE-3402)](https://www.mikroe.com/pot-click) -->
+- [Microchip PIC18F47Q57 Curiosity Nano Evaluation Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM164150)
 
 ## Setup
+MCC with Melody library was used to implement this example as shown in the following sections.
 
-<!-- Explain how to connect hardware and set up software. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
+### Delay Driver
+The delay driver was simply added to the project by locating it in the Device Resources pane on the left side in MCC.
+
+![MCC - Adding Timer Driver](images/add_delay_driver.PNG)
+
+### Pin Configuration
+The pin controlling the onboard LED on the Curiosity Nano board was configured using the Pins Grid View.  The Pins Grid View is accessed by clicking on the Pins line in Project Resources window. Then the pin connected to the LED0, RF3, was selected as an output by clicking the corresponding padlock symbol.
+
+![MCC - Open Pin Manager](images/pin_grid_view.PNG)
+
+The pin was also configured with a custom name to make the generated API more readable. The internal weak pullup feature was also selected for this pin.
+
+![MCC - Set Pin to Output](images/pin_manager.PNG)
+
+
+### Code Implementation
+Click Generate within the Project Resources Menu.
+
+![MCC - Generate Code](images/generate_button.PNG)
+
 
 ## Operation
+In this code example MCC was used to configure and initialize the pin used. Once the drivers were generated, the code needs an additional function to operate correctly. This function uses the pin manager API to toggle the LED on and off. Then the pin manager and delay driver APIs were used to toggle the onboard LED pin every one second.
 
-<!-- Explain how to operate the example. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
+```c
+int main(void)
+{
+    SYSTEM_Initialize();
+
+    while(1)
+    {
+        LED0_Toggle();
+        DELAY_milliseconds(1000);
+    }    
+}
+```
 
 ## Summary
 
-<!-- Summarize what the example has shown -->
+The example has shown how MCC can be used to configure the pins of the PIC18F57Q47 device.
