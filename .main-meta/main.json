@@ -4,7 +4,7 @@
     "content": {
         "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f57q43-blink-sw-delay-mplab-mcc",
-        "version": "1.1.0 ",
+        "version": "1.0.0",
         "displayName": "PIC18F57Q43 blink sw delay mplab mcc",
         "projectName": "pic18f57q43-blink-sw-delay-mplab-mcc",
         "shortDescription": "This examples showcases the periodic blinking of an LED using the delay routine and MCC generated APIs",
