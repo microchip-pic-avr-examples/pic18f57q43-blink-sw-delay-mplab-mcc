@@ -8,8 +8,8 @@ This example demonstrates how to use the MPLAB Code Configurator (MCC) to config
 ## Related Documentation
 
 - [MPLAB Code Configurator](https://www.microchip.com/en-us/development-tools-tools-and-software/embedded-software-center/mplab-code-configurator)
-- [PIC18F57Q47 Data Sheet](https://ww1.microchip.com/downloads/en/DeviceDoc/PIC18F27-47-57Q43-Data-Sheet-DS40002147E.pdf)
-- [PIC18F57Q47 Family Product Page](https://www.microchip.com/wwwproducts/en/PIC18F57Q43)
+- [PIC18F57Q43 Data Sheet](https://ww1.microchip.com/downloads/en/DeviceDoc/PIC18F27-47-57Q43-Data-Sheet-DS40002147E.pdf)
+- [PIC18F57Q43 Family Product Page](https://www.microchip.com/wwwproducts/en/PIC18F57Q43)
 
 ## Software Used
 
@@ -64,4 +64,4 @@ int main(void)
 
 ## Summary
 
-The example has shown how MCC can be used to configure the pins of the PIC18F57Q47 device.
+The example has shown how MCC can be used to configure the pins of the PIC18F57Q43 device.
